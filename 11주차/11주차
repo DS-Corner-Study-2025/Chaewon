@@ -1,0 +1,34 @@
+Context란?
+리액트 컴포넌트 트리 전체를 대상으로 데이터를 공급하는 기능!
+ex) "TodoEditor,TodoList,TodoItem 모두 할 일을 관리한다"라는 같은 문맥 아래에서 동작하는 컴포넌트
+
+트리에서는 2단계 이상 떨어져 있는 컴포넌트에 직접 데이터를 전달하는 것이 불가능하다.
+-> Props Drilling 문제를 해결할 수 있다.
+
+
+ContextAPI
+context를 만들고 다루는 리액트 기능.
+
+Context 만들기
+
+React.createContext를 이용하면 새로운 Context를 만들 수 있다.
+
+```import React from 'react';
+
+const MyContext = React.createContext(defaultValue);
+
+function App() {
+const data = 'data';
+return (
+  <div>
+    <Header/>
+    <MyContext.Provider value={data}>
+    <Body/>
+  </MyContext.Provider>
+</div>
+);
+}
+export default App; ```
+
+ 리팩토링 전, 현황 파악 & 문제 분석 과정 필수!!
+ 리팩토링 : 기능은 그대로 유지하면서 내부 구조만 변경해 개선하는 일.
